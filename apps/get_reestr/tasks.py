@@ -17,7 +17,7 @@ def check_phone_list_reestr():
 
     try:
         csv_file = CsvFile.objects.get(name=CsvFile.FileNameChoices.PHONE_LIST)
-
+        # Проверяем полученную дату с сайта, с датой последнего обновления в бд
         if date.date() > csv_file.updated:
             service.get_phone_list_csv(date)
 
@@ -34,7 +34,7 @@ def check_osp_list_reestr():
     service = Service()
 
     try:
-        csv_file = CsvFile.objects.get(name=CsvFile.FileNameChoices.PHONE_LIST)
+        csv_file = CsvFile.objects.get(name=CsvFile.FileNameChoices.OSP)
 
         if date.date() > csv_file.updated:
             service.get_osp_list_csv(date)
@@ -52,7 +52,7 @@ def check_tolist_reestr():
     service = Service()
 
     try:
-        csv_file = CsvFile.objects.get(name=CsvFile.FileNameChoices.PHONE_LIST)
+        csv_file = CsvFile.objects.get(name=CsvFile.FileNameChoices.TO_LIST)
 
         if date.date() > csv_file.updated:
             service.get_tolist_csv(date)
@@ -64,15 +64,15 @@ def check_tolist_reestr():
 app.conf.beat_schedule = {
     'check_phone_list_reestr': {
         'task': 'check_phone_list_reestr',
-        'schedule': crontab(minute=0, hour=12)
+        'schedule': crontab(minute=0, hour=12)  # каждый день в 12 часов дня
     },
     'check_osp_list_reestr': {
             'task': 'check_osp_list_reestr',
-            'schedule': crontab(minute=0, hour=13)
+            'schedule': crontab(minute=0, hour=13)  # каждый день в 13 часов дня
         },
     'check_tolist_reestr': {
             'task': 'check_tolist_reestr',
-            'schedule': crontab(minute=0, hour=14)
+            'schedule': crontab(minute=0, hour=14) # каждый день в 14 часов дня
         },
 }
 

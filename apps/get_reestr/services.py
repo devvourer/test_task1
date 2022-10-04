@@ -91,7 +91,7 @@ class Service:
                 count += 1
 
     def get_phone_list_csv(self, date: str) -> None:
-        """ Метод стягивает файл phone_list с сайта записывает в бд"""
+        """ Метод стягивает файл phone_list с сайта и записывает в бд"""
         date = date.replace('-', '')
         url = f'{self.base_url}{self.phone_list}/data-{date}-structure-20150209.csv'
 
@@ -110,7 +110,7 @@ class Service:
             self.write_from_phone_list_csv(obj)
 
     def get_osp_list_csv(self, date: str) -> None:
-        """ Метод стягивает файл osp с сайта записывает в бд"""
+        """ Метод стягивает файл osp с сайта и записывает в бд"""
 
         date = date.replace('-', '')
         url = f'{self.base_url}{self.osp}/data-{date}-structure-20160226.csv'
@@ -129,7 +129,7 @@ class Service:
             self.write_from_osp_list_csv(obj)
 
     def get_tolist_csv(self, date: str) -> None:
-        """ Метод стягивает файл tolist с сайта записывает в бд"""
+        """ Метод стягивает файл tolist с сайта и записывает в бд"""
 
         date = date.replace('-', '')
         url = f'{self.base_url}{self.tolist}/data-{date}-structure-20160729.csv'

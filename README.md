@@ -1,11 +1,11 @@
 ## ⚙️ Setup
-В дериктории с проектом необходимо создать `.env` файл с содержимым:
+В директории с проектом необходимо создать `.env` файл с содержимым:
 - SECRET_KEY=XXXXXXXXXXXXXXXXXXXX
 - DEBUG=XXXX (bool)
 - REDIS_URL=XXXXXXX
 - REDIS_PORT=XXXXXXX
 
-
+    
 
 Пропишите эти команды по очередности:
 
